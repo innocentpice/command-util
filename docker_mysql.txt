@@ -1,0 +1,6 @@
+﻿docker run --name mysql -e MYSQL_ROOT_PASSWORD=P@ssw0rd -e MYSQL_DATABASE=crudapp -p 3306:3306 -d mysql:8.0.17
+
+docker run --name myadmin -d --link mysql:db -p 8081:80 phpmyadmin/phpmyadmin
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'P@ssw0rd';
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'P@ssw0rd';
